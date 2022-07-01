@@ -9,12 +9,16 @@ const Task = (sequelize, DataTypes) => {
 			type: DataTypes.STRING,
 			AllowNull: false,
 		},
+		status: {
+			type: DataTypes.STRING,
+			AllowNull: false
+		},
 		userId: {
 			type: DataTypes.INTEGER,
 			foreignKey: true,
 			AllowNull: false,
 		}
-	}, { timestamps: false });
+	}, { tableName: 'Tasks' });
 
 	return Task;
 };
