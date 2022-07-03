@@ -1,11 +1,15 @@
 const userService = require('../services/userService');
 
 const create = async (req, res) => {
-	const { name, password } = req.body;
+	try {
+		const { name, password } = req.body;
 
-	const insertId = await userService.create(name, password);
+		const id = await userService.create(name, password);
 
-	return res.status(200).json({ id: insertId, name, password });
+		return res.status(200).json({ id, name, password });
+	} catch (e) {
+		console.log(e);
+	}
 };
 
 module.exports = {

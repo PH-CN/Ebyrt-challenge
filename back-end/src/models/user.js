@@ -13,7 +13,11 @@ const User = (sequelize, DataTypes) => {
 			type: DataTypes.STRING,
 			allowNull: false,
 		},
-	}, { tableName: 'Users' });
+	}, { 
+		tableName: 'Users',
+		createdAt: 'created_at',
+		updatedAt: 'updated_at'
+	});
 
 	return User;
 };

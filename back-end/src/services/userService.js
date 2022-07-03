@@ -1,9 +1,9 @@
-const User = require('../models');
+const db = require('../models');
 
 const create = async (name, password) => {
-	const { insertId } = await User.create({ name, password });
+	const { id } = await db.User.create({ name, password });
 
-	return insertId;
+	return id;
 };
 
 module.exports = {
