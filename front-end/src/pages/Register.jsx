@@ -35,6 +35,7 @@ export default function Register() {
 				</label>
 				<button 
 					type="submit"
+					name="submitBtn"
 					disabled={ disabled }
 					onClick={ handleSubmitBtn }
 				>
