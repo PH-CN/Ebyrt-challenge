@@ -22,16 +22,16 @@ function ListProvider({ children }) {
 		if (name === 'username') {
 			setUsername(value);
 		}
-		if (name === 'email') {
+		if (name === 'password') {
 			setPassword(value);
 		}
 	};
 
-	const handleLoginSubmitButton = async (event) => {
+	const handleSubmitBtn = async (event) => {
 		event.preventDefault();
-		await fetch('https://ebyrt-back-end.herokuapp.com/', { method: 'POST', body: {
+		await fetch('https://ebyrt-back-end.herokuapp.com/register', { method: 'POST', body: {
 			username, password
-		} });
+		}, mode: 'no-cors' });
 		setUsername('');
 		setPassword('');
 	};
@@ -42,7 +42,7 @@ function ListProvider({ children }) {
 		password,
 		username,
 		handleChangeLogin,
-		handleLoginSubmitButton,
+		handleSubmitBtn,
 	};
 
 	return (

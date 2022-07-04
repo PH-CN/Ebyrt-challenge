@@ -25,10 +25,10 @@ export default function Register() {
 					/>
 				</label>
 				<label htmlFor="email">
-        Email:
+        Password:
 					<input
 						type="text" 
-						name="email"
+						name="password"
 						value={ password }
 						onChange={ handleChangeLogin }
 					/>
