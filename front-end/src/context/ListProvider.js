@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Axios from 'axios';
 import PropTypes from 'prop-types';
 import ListContext from './Context';
 import { useNavigate } from 'react-router-dom';
@@ -29,9 +30,9 @@ function ListProvider({ children }) {
 
 	const handleSubmitBtn = async (event) => {
 		event.preventDefault();
-		await fetch('https://ebyrt-back-end.herokuapp.com/register', { method: 'POST', body: {
+		Axios.post('https://ebyrt-back-end.herokuapp.com/register', {
 			username, password
-		}, });
+		});
 		setUsername('');
 		setPassword('');
 	};
