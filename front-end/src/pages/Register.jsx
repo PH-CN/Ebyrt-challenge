@@ -4,6 +4,7 @@ import ListContext from '../context/Context';
 export default function Register() {
 	const {
 		handleChangeLogin,
+		handleSubmitBtn,
 		username,
 		password,
 		disabled,
@@ -35,7 +36,7 @@ export default function Register() {
 				<button 
 					type="submit"
 					disabled={ disabled }
-				// onClick={ handleSubmitBtn }
+					onClick={ handleSubmitBtn }
 				>
         Submit
 				</button>

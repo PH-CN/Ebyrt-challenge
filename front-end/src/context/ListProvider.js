@@ -27,17 +27,22 @@ function ListProvider({ children }) {
 		}
 	};
 
-	// const handleLoginSubmitButton = async (event) => {
-	// 	event.preventDefault();
-		
-	// };
+	const handleLoginSubmitButton = async (event) => {
+		event.preventDefault();
+		await fetch('https://ebyrt-back-end.herokuapp.com/', { method: 'POST', body: {
+			username, password
+		} });
+		setUsername('');
+		setPassword('');
+	};
   
 	const value = {
 		navigate,
 		disabled,
 		password,
 		username,
-		handleChangeLogin
+		handleChangeLogin,
+		handleLoginSubmitButton,
 	};
 
 	return (
