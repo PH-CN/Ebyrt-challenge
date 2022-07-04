@@ -8,6 +8,7 @@ export default function Register() {
 		username,
 		password,
 		disabled,
+		handleBackBtn
 	} = useContext(ListContext);
 	return (
 		<>
@@ -15,6 +16,12 @@ export default function Register() {
 				<h1>Registration</h1>
 			</header>
 			<form className='App'>
+				<button
+					type='button'
+					onClick={ handleBackBtn }
+				>
+					Back
+				</button>
       Username:
 				<label htmlFor="username">
 					<input

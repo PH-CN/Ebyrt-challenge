@@ -9,6 +9,7 @@ function ListProvider({ children }) {
 	const [password, setPassword] = useState('');
 	const [username, setUsername] = useState('');
 	const [disabled, setDisabled] = useState(true);
+	const [loggedUser, setLoggedUser] = useState(false);
 
 	useEffect(() => {
 		if (username.length >= 5 && password.length >= 5) {
@@ -28,13 +29,40 @@ function ListProvider({ children }) {
 		}
 	};
 
+	const handleBackBtn = () => {
+		navigate(-1);
+	};
+
+	const handleLoginBtn = (event) => {
+		event.preventDefault();
+		Axios.get('http://localhost:3333/users',)
+			.then((result) => {
+				const user = result.data
+					.find((user) => user.name === username && user.password === password);
+				if (user) {
+					setLoggedUser(true);
+					navigate('/list', { replace: true });
+				} else {
+					setLoggedUser(false);
+					alert('User not find, please sign in first');
+				}
+			})
+			.catch((error) => {
+				console.log(error);
+			});
+	};
+
 	const handleSubmitBtn = async (event) => {
 		event.preventDefault();
-		Axios.post('https://ebyrt-back-end.herokuapp.com/register', {
-			username, password
-		});
-		setUsername('');
-		setPassword('');
+
+		Axios.post('http://localhost:3333/register', {
+			name: username, password
+		}).then(() => {
+			alert('User successfully created');
+		})
+			.catch(() => {
+				alert('User already exists');
+			});
 	};
   
 	const value = {
@@ -42,8 +70,12 @@ function ListProvider({ children }) {
 		disabled,
 		password,
 		username,
+		loggedUser,
 		handleChangeLogin,
 		handleSubmitBtn,
+		handleBackBtn,
+		handleLoginBtn,
+
 	};
 
 	return (

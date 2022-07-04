@@ -1,11 +1,16 @@
 import React from 'react';
+import { useContext } from 'react';
+import ListContext from '../context/Context';
 
 export default function List() {
-	return (
-		<section>
-			<ul>
-				<li>1</li>
-			</ul>
-		</section>
+	const loggedUser = useContext(ListContext);
+	
+	return(
+		<>
+			{loggedUser &&
+			<section>
+				<h1>oi</h1>
+			</section>}
+		</>
 	);
 }

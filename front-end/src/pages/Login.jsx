@@ -4,10 +4,11 @@ import ListContext from '../context/Context';
 export default function Login() {
 	const {
 		handleChangeLogin,
+		handleLoginBtn,
 		username,
 		password,
 		disabled,
-		navigate
+		navigate,
 	} = useContext(ListContext);
 	return (
 		<form className='App'>
@@ -24,7 +25,7 @@ export default function Login() {
         Email:
 				<input
 					type="text" 
-					name="email"
+					name="password"
 					value={ password }
 					onChange={ handleChangeLogin }
 				/>
@@ -32,7 +33,7 @@ export default function Login() {
 			<button 
 				type="submit"
 				disabled={ disabled }
-				// onClick={ handleSubmitBtn }
+				onClick={ handleLoginBtn }
 			>
         Submit
 			</button>
