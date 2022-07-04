@@ -31,7 +31,7 @@ function ListProvider({ children }) {
 		event.preventDefault();
 		await fetch('https://ebyrt-back-end.herokuapp.com/register', { method: 'POST', body: {
 			username, password
-		}, mode: 'no-cors' });
+		}, });
 		setUsername('');
 		setPassword('');
 	};
