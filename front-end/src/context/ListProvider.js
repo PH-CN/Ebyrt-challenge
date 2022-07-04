@@ -8,8 +8,10 @@ function ListProvider({ children }) {
 	const navigate = useNavigate();
 	const [password, setPassword] = useState('');
 	const [username, setUsername] = useState('');
+	const [task, setTask] = useState('');
+	const [tasks, setTasks] = useState([]);
 	const [disabled, setDisabled] = useState(true);
-	const [loggedUser, setLoggedUser] = useState(false);
+	const [isLogged, setIsLogged] = useState(false);
 
 	useEffect(() => {
 		if (username.length >= 5 && password.length >= 5) {
@@ -29,6 +31,11 @@ function ListProvider({ children }) {
 		}
 	};
 
+	const handleTaskChange = ({ target }) => {
+		const { value } = target;
+		setTask(value);
+	};
+
 	const handleBackBtn = () => {
 		navigate(-1);
 	};
@@ -40,16 +47,20 @@ function ListProvider({ children }) {
 				const user = result.data
 					.find((user) => user.name === username && user.password === password);
 				if (user) {
-					setLoggedUser(true);
+					setIsLogged(true);
 					navigate('/list', { replace: true });
 				} else {
-					setLoggedUser(false);
+					setIsLogged(false);
 					alert('User not find, please sign in first');
 				}
 			})
 			.catch((error) => {
 				console.log(error);
 			});
+	};
+
+	const handleTaskBtn = () => {
+		setTasks([...tasks, task]);
 	};
 
 	const handleSubmitBtn = async (event) => {
@@ -70,12 +81,14 @@ function ListProvider({ children }) {
 		disabled,
 		password,
 		username,
-		loggedUser,
+		task,
+		isLogged,
 		handleChangeLogin,
 		handleSubmitBtn,
 		handleBackBtn,
 		handleLoginBtn,
-
+		handleTaskChange,
+		handleTaskBtn
 	};
 
 	return (
