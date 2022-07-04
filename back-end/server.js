@@ -1,14 +1,14 @@
 const app = require('./app');
-const cors = require('cors');
 const express = require('express');
+const cors = require('cors');
 const userController = require('./src/controllers/userController');
 
-const port = (process.env.PORT || 3000);
+const port = (process.env.PORT || 3333);
 
 app.use(express.json());
 app.use(cors());
 
-app.get('/', (req, res) => res.send('Hello World!'));
+app.get('/users', userController.findAll);
 
 app.post('/register', userController.create);
 

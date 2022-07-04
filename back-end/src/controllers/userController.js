@@ -1,8 +1,24 @@
 const userService = require('../services/userService');
 
+const findAll = async (_req, res) => {
+	try {
+		const users = await userService.findAll();
+
+		return res.status(200).json(users);
+	} catch (error) {
+		console.log(error);
+	}
+};
+
 const create = async (req, res) => {
 	try {
 		const { name, password } = req.body;
+
+		const user = await userService.findOne(name);
+
+		if (user) {
+			return res.status(400).json({message: 'User already exists'});
+		}
 
 		const id = await userService.create(name, password);
 
@@ -13,5 +29,6 @@ const create = async (req, res) => {
 };
 
 module.exports = {
-	create
+	create,
+	findAll
 };
