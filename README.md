@@ -1,4 +1,4 @@
- **Ebyrt Challenge**
+# **Ebyrt Challenge**
 
 Esse é o repositório do desafio técnico da Ebyrt, que consiste em uma lista de tarefas que tem como intuito ajudar a organizar o dia a dia das pessoas, após se registrar e fazer login, você terá uma lista exclusiva para você que te possibilitará adicionar qualquer tarefa. Como o projeto ainda está em desenvolvimento, no momento apenas a funcionalidade de adicionar itens na lista está disponível, mas em breve também serão adicionadas as funcionalidades de poder editar algum item da lista, excluir algum item da lista, ordenar com vários filtros, e também de marcar se a tarefa está em andamento ou se foi concluída.
 
