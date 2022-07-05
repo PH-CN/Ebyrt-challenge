@@ -10,7 +10,7 @@ Esse é o repositório do desafio técnico da Ebyrt, que consiste em uma lista d
 
 ## **Como rodar**
 
-**Por enquanto ainda só é possível rodar localmente devido à problemas de deploy no heroku**
+!!**Por enquanto ainda só é possível rodar localmente devido à problemas de deploy no heroku**!!
 
 1. Clone o repositório:
 `git clone git@github.com:PH-CN/Ebyrt-challenge.git`
