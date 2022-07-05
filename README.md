@@ -19,18 +19,27 @@ Esse é o repositório do desafio técnico da Ebyrt, que consiste em uma lista d
 `cd front-end && npm install`
 
 3. Volte para a raiz, entra na pasta do back-end e instale as dependências:
-`cd ..` >
+
+`cd ..` 
+
 `cd back-end && npm install`
 
 4. Crie o arquivo .env na pasta do **back-end**:
 `touch .env`
-Nele você deverá colocar as seguintes variáveis: 
-MYSQL_USER=(seu usuario do mysql) 
-MYSQL_PASSWORD=(sua senha do mysql) 
-MYSQL_DATABASE=EbyrtChallenge
-HOSTNAME=localhost
+Nele você deverá colocar as seguintes variáveis:
+
+  MYSQL_USER=(seu usuario do mysql)
+
+  MYSQL_PASSWORD=(sua senha do mysql) 
+
+  MYSQL_DATABASE=EbyrtChallenge
+
+  HOSTNAME=localhost
 
 5. Entre novamente nas pastas e inicie o aplicative do Front-end e a API:
-`npm start` >
-`cd ..` >
+
+`npm start`
+
+`cd ..` 
+
 `cd front-end && npm start`
